@@ -1,0 +1,15 @@
+{
+  "name": "django_projectsplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "venv": "python3 -m venv .venv && npm i",
+    "freeze": "pip freeze > requirements.txt",
+    "activate": ".venv\\Scripts\\Activate",
+    "postinstall": "npm run activate && pip install -r requirements.txt",
+    "migrate": "python projects/manage.py migrate",
+    "start": "python projects/manage.py runserver 127.0.0.1:8000"
+  },
+  "author": "",
+  "license": "ISC"
+}
