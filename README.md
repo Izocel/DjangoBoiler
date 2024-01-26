@@ -1,1 +1,1 @@
-tuto: https://docs.djangoproject.com/en/5.0/intro/tutorial01/
+tuto: https://docs.djangoproject.com/en/5.0/intro/tutorial01/#write-your-first-view
