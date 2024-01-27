@@ -9,6 +9,12 @@
 		},
 		{
 			"type": "npm",
+			"script": "freeze",
+			"problemMatcher": [],
+			"label": "freeze pip"
+		},
+		{
+			"type": "npm",
 			"script": "activate",
 			"problemMatcher": [],
 			"label": "activate"
@@ -18,6 +24,12 @@
 			"script": "migrate",
 			"problemMatcher": [],
 			"label": "migrate"
+		},
+		{
+			"type": "npm",
+			"script": "makeMigrations",
+			"problemMatcher": [],
+			"label": "make migrations"
 		}
 	]
 }

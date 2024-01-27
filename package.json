@@ -8,6 +8,7 @@
     "freeze": ".venv\\Scripts\\pip.exe freeze > requirements.txt",
     "postinstall": ".venv\\Scripts\\pip.exe install -r requirements.txt",
     "migrate": ".venv\\Scripts\\python.exe projects/manage.py migrate",
+    "makeMigrations": ".venv\\Scripts\\python.exe projects/manage.py makemigrations",
     "start": ".venv\\Scripts\\python.exe projects/manage.py runserver 127.0.0.1:8000"
   },
   "author": "",
