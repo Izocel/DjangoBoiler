@@ -2,6 +2,9 @@
     "python.linting.pylintEnabled": true,
     "python.linting.flake8Enabled": false,
     "python.linting.enabled": true,
+    "python.defaultInterpreterPath": ".venv/bin/Scripts/python.exe",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic",
     "files.exclude": {
         "**/.git": false,
         "**/.svn": false,
@@ -14,5 +17,18 @@
         "**/.settings": false,
         "**/.factorypath": false
     },
-    "explorerExclude.backup": {}
+    "explorerExclude.backup": {},
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "spellright.parserByClass": {
+        "properties": {
+            "parser": "markdown"
+        }
+    }
 }

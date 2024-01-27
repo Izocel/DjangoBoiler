@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "virtualize",
+			"problemMatcher": [],
+			"label": "virtualize"
+		},
+		{
+			"type": "npm",
+			"script": "activate",
+			"problemMatcher": [],
+			"label": "activate"
+		},
+		{
+			"type": "npm",
+			"script": "migrate",
+			"problemMatcher": [],
+			"label": "migrate"
+		}
+	]
+}

@@ -6,11 +6,13 @@
     "configurations": [
         {
             "name": "Python: Django",
+            "preLaunchTask": "activate",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\projects\\manage.py",
             "args": [
-                "runserver"
+                "runserver",
+                "127.0.0.1:8000"
             ],
             "django": true,
             "justMyCode": true
