@@ -25,4 +25,18 @@ class Tools:
         }
         
         return results
-    
+
+    @staticmethod
+    def encodeClientCredentials()->dict:
+        client_id = ENV("OAUTH_CREDENTIAL_CLIENT")
+        client_secret = ENV("OAUTH_CREDENTIAL_SECRET")
+        credential = "{0}:{1}".format(client_id, client_secret)
+        credential = base64.b64encode(credential.encode("utf-8"))
+        
+        results:dict = {
+            'client_id': client_id,
+            'client_secret': client_secret,
+            'credential': credential
+        }
+        
+        return results
