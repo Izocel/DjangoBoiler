@@ -1,17 +1,23 @@
 from pathlib import Path
 import environ
 
+from projects.loggers.appLogger import setup_logging
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+ENV = environ.Env()
+environ.Env.read_env()
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=km%60l+-$o#7%gxir=-_yfrdx4q03wk&x95&n2^d&*4*s6vn@'
+SECRET_KEY = ENV("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+setup_logging()
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
@@ -19,12 +25,8 @@ DEBUG_TOOLBAR_CONFIG = {
 
 ALLOWED_HOSTS = []
 
-ENV = environ.Env()
-environ.Env.read_env()
-
 
 # Application definition
-
 INSTALLED_APPS = [
     "debug_toolbar",
     'django.contrib.admin',
@@ -66,7 +68,6 @@ REST_FRAMEWORK = {
     )
 }
 
-
 ROOT_URLCONF = 'projects.urls'
 
 TEMPLATES = [
@@ -94,17 +95,14 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -126,16 +124,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL='app.User'
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'America/Toronto'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
@@ -151,11 +145,8 @@ LOGIN_URL='/admin/login/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INTERNAL_IPS = [
-    # ...
     "127.0.0.1",
-    # ...
 ]
-
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
