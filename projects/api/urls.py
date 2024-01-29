@@ -1,17 +1,29 @@
-from django.urls import include, path
-from rest_framework import routers
+from django.urls import path
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
 from api import views
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Django Boiler - API",
+      default_version='v1',
+      description="Django Boiler - API",
+      contact=openapi.Contact(email="webdevteam@rvdprojects.com"),
+      license=openapi.License(name="BSD License"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('v1/users/', views.UserList.as_view()),
+    path('v1/users/<pk>/', views.UserDetails.as_view()),
+    path('v1/groups/', views.GroupList.as_view()),
+    
+    path('v1/docs<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('v1/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
-
-urlpatterns += router.urls

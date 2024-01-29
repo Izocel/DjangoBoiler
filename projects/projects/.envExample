@@ -1,4 +1,2 @@
-
-OAUTH_WEB_CODE=xxxxxxxxxxxxxxxxx
-OAUTH_CODE_CLIENT=xxxxxxxxxxxxxxxxxxxxxx
-OAUTH_CODE_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+OAUTH_USER_CLIENT=xxxxxxxxxxxxxxxxxxx
+OAUTH_USER_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxx

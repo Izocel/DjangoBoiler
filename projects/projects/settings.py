@@ -13,6 +13,10 @@ SECRET_KEY = 'django-insecure-=km%60l+-$o#7%gxir=-_yfrdx4q03wk&x95&n2^d&*4*s6vn@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}
+
 ALLOWED_HOSTS = []
 
 ENV = environ.Env()
@@ -31,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'oauth2_provider',
     'rest_framework',
+    'drf_yasg',
     'tools',
     'app'
 ]
@@ -53,6 +58,9 @@ OAUTH2_PROVIDER = {
 }
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     )
@@ -147,3 +155,15 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'oauth2': {
+            'type': 'oauth2',
+            "in": "header",
+            "flow": "password",
+            "tokenUrl": "http://127.0.0.1:8000/oauth/token/"
+        }
+    },
+}
